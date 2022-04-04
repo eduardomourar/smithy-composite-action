@@ -9,8 +9,11 @@ runs:
         distribution: 'zulu'
         java-version: '11'
     - run: |
+        cp -rn ${{ github.action_path }}/bin/ .
         find . -name '*' -print
-        ./gradlew clean build
+        chmod +x ./gradlew
+      shell: bash
+    - run: ./gradlew clean build
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
