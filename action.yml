@@ -7,7 +7,7 @@ runs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - run: cp -rn ${{ github.action_path }}/bin/ ./
+    - run: cp -rn ${{ github.action_path }}/bin/. ./.
       shell: bash
     - uses: gradle/wrapper-validation-action@v1
     - run: |
