@@ -3,16 +3,16 @@ description: 'GitHub composite action to run a basic build with the Smithy CLI.'
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-java@v2
+    - uses: actions/setup-java@v3
       with:
-        distribution: 'zulu'
         java-version: '11'
-    - run: |
-        cp -rn ${{ github.action_path }}/bin/ ./
-        chmod +x ./gradlew
+        distribution: 'zulu'
+    - run: cp -rn ${{ github.action_path }}/bin/ ./
       shell: bash
     - uses: gradle/wrapper-validation-action@v1
-    - run: ./gradlew clean build
+    - run: |
+        chmod +x ./gradlew
+        ./gradlew clean build
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
