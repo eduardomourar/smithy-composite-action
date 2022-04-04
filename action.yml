@@ -6,7 +6,7 @@ runs:
     - uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'zulu'
+        distribution: 'temurin'
     - run: cp -rn ${{ github.action_path }}/bin/ ./
       shell: bash
     - uses: gradle/wrapper-validation-action@v1
@@ -17,4 +17,4 @@ runs:
     - uses: actions/upload-artifact@v3
       with:
         name: smithy-output
-        path: build/
+        path: build/smithyprojections/
