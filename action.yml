@@ -9,6 +9,7 @@ runs:
         distribution: 'zulu'
         java-version: '11'
     - run: ./gradlew clean build
+      shell: bash
     - uses: actions/upload-artifact@v3
       with:
         name: smithy-output
